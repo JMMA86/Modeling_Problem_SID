@@ -21,4 +21,4 @@ Los siguientes contenidos se encuentran en la carpeta "doc" del proyecto:
 
 1. [Enunciado del problema](doc/Enunciado.md)
 
-2. [Entidades, relaciones y reportes](doc/Entidades,_relaciones_y_reportes.md)
+2. [Entidades, relaciones y reportes](doc/Entidades, relaciones y reportes.md)
