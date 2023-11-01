@@ -19,5 +19,6 @@ Proporcionar a los clientes de un gimnasio la posibilidad de consultar de manera
 
 Los siguientes contenidos se encuentran en la carpeta "doc" del proyecto:
 
-1. Enunciado del problema
-2. Entidades, relaciones y reportes
+1. [Enunciado del problema](doc/Enunciado.md)
+
+2. [Entidades, relaciones y reportes](doc/Entidades,_relaciones_y_reportes.md)
