@@ -1,0 +1,13 @@
+## Enunciado del problema
+
+Recientemente, el gimnasio X ha tenido problemas con la gestión de sus clientes y suscripciones, pues, hasta el momento llevaba en registro de los clientes y sus cuentas en papel, lo que vuelve el proceso de entrada y salida muy ineficiente. Por otro lado, debido al aumento de clientes de las últimas semanas, el personal que se tiene contratado (entrenadores) no pueden atender correctamente a los clientes, ya que los planes de entrenamiento que se asignan son confusos y no se les hace el seguimiento adecuado, lo que está llevando a quejas por parte de los usuarios.
+
+Ante esto, se ha propuesto una solución de software que consta de una plataforma para gestionar los servicios del gimnasio X, de modo que el personal del gimnasio no pierda tiempo con las actividades de registro y seguimiento, y que los usuarios puedan conocer en cualquier momento el estado de sus planes de entrenamiento sin confusiones. 
+
+En este caso, el análisis se va a enfocar únicamente en la parte del usuario del gimnasio, es decir, el cliente, del cual se registrará el nombre, fecha de nacimiento y género. Cada cliente se identificará con su cédula de ciudadanía o extranjería. Los clientes que se registren como estudiantes tendrán un descuento especial de $10\%$ en el valor de la suscripción. Un cliente solo tiene acceso a una suscripción, pues esta tiene un valor base de $\$30$ por mes, de la suscripción se guarda el ID de cliente , fecha de inicio, fecha de finalización.
+
+Un usario puede adquirir servicios o artículos adicionales, de los que se registrará el id, nombre y precio. Estos pueden ser planes de entrenamiento o mercancías. De los planes de entrenamiento se registra la duración y el objetivo del plan. De las mercancías se guarda la marca. Las mercancías pueden ser de tipo: suplemento o accesorio deportivo, de los suplementos se guarda la cantidad o dosis, de los accesorios deportivos la talla.
+
+Para el entrenamiento de los usuarios se tiene un banco de ejercicios enfocados en distintos grupos musculares, para esto, se asegura que cada ejercicio está asignado a uno o más grupos musculares.  De los ejercicios se guarda un identificador, nombre y su descripción. Los ejercicios además, se pueden agrupar en rutinas, una rutina tiene un id, nombre, duración estimada y varios ejercicios.
+
+Se pretende llevar un historial de ejercicios, que es importante para que los usuarios puedan medir su progreso en los distintos ejercicios. Por ello, cuando un cliente realiza un ejercicio se debe registrar el id del ejercicio, de la rutina y del cliente, y el rendimiento, este puede ser medido en repeticiones o en duración en segundos.
