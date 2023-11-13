@@ -1,38 +1,46 @@
-# Entidades fundamentales
+## Entidades
 
+### Entidades fundamentales
 
-* **Artículo Extra**:  ID del artículo (número), nombre del artículo (cadena), precio (número)
-	* **Plan de Entrenamiento**: atributos - duración (número en semanas), objetivo (cadena)
-	* **Mercancía:** marca (cadena) 
-		* **Suplemento:** Cantidad (número)
-		* **Accesorio:** Talla (cadena)
-* **Cliente**: atributos - ID del cliente (número), nombre (cadena), fecha de nacimiento (fecha), género (cadena).
-	* **Estudiante:** institución (cadena), porcentaje de descuento (decimal)
-* **Rutina de entrenamiento:** atributos - ID de la rutina (número), duración (número), nombre (cadena), 
-* **Ejercicio**: atributos - ID del ejercicio (número), nombre del ejercicio (cadena), descripción (cadena).
-* **Ejercicio de cardio:** id_cardio, duración (decimal) 
-* **Ejercicio de pesas:** id_pesas, repeticiones (número)
+* **Cliente**: ID del cliente (entero), nombre (cadena), fecha de nacimiento (fecha), género (cadena), ciudad (cadena), peso en libras (decimal), altura en cm (entero), porcentaje de descuento (decimal), es estudiante (booleano)
+* **Artículo Extra**:  ID del artículo (entero), ID de la suscripción, nombre del artículo (cadena), precio (decimal), link de la imagen (cadena), marca (cadena), stock (entero)
+	* **Suplemento:** Dosis en gramos (decimal)
+	* **Accesorio:** Talla (cadena)
+* **Rutina de entrenamiento:** ID de la rutina (entero), ID del cliente (entero), duración en segundos (entero), nombre (cadena), fecha de creación (fecha), dificultad (cadena)
+* **Ejercicio**: ID del ejercicio (entero), nombre del ejercicio (cadena), descripción (cadena), link de la imagen (cadena), link del tutorial (cadena)
+* **Grupo muscular**: ID del grupo muscular (entero), nombre del grupo muscular (cadena).
+1. **Registro de Ejercicio:** ID del registro (entero), ID del ejercicio (entero).
+	1. **Ejercicio de pesas:** ID del ejercicio de pesas (entero), peso_lbs (decimal), repeticiones (número)
+	2. **Ejercicio de cardio:** ID del ejercicio de cardio (entero),  duración en segundos (decimal), calorías quemadas (entero) 
 
-## Entidad débil
+### Entidad débil
 
-* **Suscripción**: atributos - ID de cliente (número), fecha de inicio (fecha), fecha de finalización (fecha), precio base (número). Esta entidad es débil ya que depende del cliente. 
+* **Suscripción**: ID de la suscripción (entero), fecha de inicio (fecha), fecha de finalización (fecha), precio base (decimal).
 
-**Entidad secundaria (dominio)**:
+### Entidad secundaria
 
-* **Grupo muscular**: atributos - ID del grupo muscular (número), nombre del grupo muscular (cadena).
-* **Historial de Ejercicios**: atributos - ID del ejercicio (número), ID del cliente, ID de la rutina (número), peso levantado (número)
+* **Historial de Ejercicios**: ID del ejercicio (entero), ID del cliente (entero), ID de la rutina (entero), fecha de registro (fecha), record personal (booleano)
+* **Ejercicio por Grupo:** ID del ejercicio (entero), ID del grupo muscular (entero)
 
 ## Relaciones
 
-* **Cliente-Plan de Entrenamiento:** relación binaria con cardinalidad N…N, un cliente puede tener varios planes de entrenamiento y un plan de entrenamiento puede ser asignado a varios clientes.
-* **Plan de Entrenamiento-Ejercicio:** relación binaria con cardinalidad 1…N, un plan de entrenamiento puede tener varios ejercicios pero un ejercicio pertenece a un solo plan de entrenamiento.
-* **Cliente-Rutina-Historial de Ejercicios:** relación ternaria que muestra en un ejercicio registrado, que cliente lo hizo y qué rutina se encontraba haciendo.
+### Binarias
 
-**Supertipo y subtipos**: Los clientes y artículos tienen atributos adicionales según los subtipos.
+1. **Ejercicio a GrupoMuscular: (N-N)** Dado que un grupo muscular puede ser entrenado con varios ejercicios, y que un ejercicio puede trabajar varios grupos musculares a la vez, se crea una relación de muchos a muchos entre estas 2 mediante una tabla de unión.
+2. **Cliente a Suscripción (1-1):** Como un cliente solo puede tener una suscripción activa, y cada suscripción solo puede tener a un cliente asignado, se tiene una relación de 1 a 1 donde el cliente es obligatorio.
+3. **Suscripción a artículo extra (1-N):** En una suscripción activa, se pueden adquirir 0 o más artículos extra.
+4. **Cliente a rutina:** Un cliente puede tener varias rutinas, y una rutina solo puede ser creada por un cliente.
 
-**Arco**: En el historial de ejercicios, se puede tener una relación de exclusión entre los que se basan en repeticiones y los que se miden por duración en segundos.
+### Grado 3 o más
 
-## Reportes de interés
+1. **Historial de Ejercicios hacia cliente, rutina y registro de ejercicio: (Ternaria)** relación ternaria que muestra en la tabla de historial de ejercicios: qué cliente, con qué rutina y qué ejercicio hizo.
+
+### Arcos
+
+1. **Artículo Extra:** Este puede ser un suplemento o un accesorio deportivo, donde el suplemento tiene dosis y el accesorio talla, solo puede ser uno a la vez.
+2. **Registro de Ejercicio:** Un registro de ejercicio puede ser de un ejercicio de pesas o de cardio, la diferencia es que uno mide calorías quemadas y duración en segundos, mientras que el otro mide series y repeticiones.
+
+# Reportes de interés
 
 - Se quiere saber para un determinado ejercicio, cuál ha sido el rendimiento en un intervalo de tiempo dado.
 - Se quiere consultar rutinas de entrenamiento que incluyan ejercicios para un determinado grupo muscular.
