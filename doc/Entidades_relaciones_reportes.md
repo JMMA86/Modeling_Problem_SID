@@ -3,7 +3,7 @@
 ### Entidades fundamentales
 
 * **Cliente**: ID del cliente (entero), nombre (cadena), fecha de nacimiento (fecha), género (cadena), ciudad (cadena), peso en libras (decimal), altura en cm (entero), porcentaje de descuento (decimal), es estudiante (booleano)
-* **Artículo Extra**:  ID del artículo (entero), ID de la suscripción, nombre del artículo (cadena), precio (decimal), link de la imagen (cadena), marca (cadena), stock (entero)
+* **Artículo Extra**:  ID del artículo (entero), ID del cliente (entero) nombre del artículo (cadena), precio (decimal), link de la imagen (cadena), marca (cadena), stock (entero)
 	* **Suplemento:** Dosis en gramos (decimal)
 	* **Accesorio:** Talla (cadena)
 * **Rutina de entrenamiento:** ID de la rutina (entero), ID del cliente (entero), duración en segundos (entero), nombre (cadena), fecha de creación (fecha), dificultad (cadena)
@@ -15,7 +15,7 @@
 
 ### Entidad débil
 
-* **Suscripción**: ID de la suscripción (entero), fecha de inicio (fecha), fecha de finalización (fecha), precio base (decimal).
+* **Suscripción**: ID del cliente (entero), fecha de inicio (fecha), fecha de finalización (fecha), precio base (decimal).
 
 ### Entidad secundaria
 
