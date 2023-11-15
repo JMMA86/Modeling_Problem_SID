@@ -138,6 +138,8 @@ CREATE TABLE suscripcion (
     cliente_id         INTEGER NOT NULL
 );
 
+ALTER TABLE suscripcion ADD CONSTRAINT suscripcion_pk PRIMARY KEY ( cliente_id );
+
 // LLAVES FORÁNEAS
 
 ALTER TABLE accesorio_deportivo
